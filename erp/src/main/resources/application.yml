@@ -1,0 +1,33 @@
+server:
+  port: 8201
+spring:
+  application:
+    name: POWER-GRID-PROVIDER
+  datasource:
+    username: root
+    password: 123456
+    url: jdbc:mysql://localhost:3306/stategrid?useUnicode=true&serverTimezone=Asia/Shanghai&characterEncoding=utf-8
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    hikari:
+      maximum-pool-size: 60
+      connection-timeout: 60000
+      validation-timeout: 3000
+      max-lifetime: 60000
+      idle-timeout: 55000
+      minimum-idle: 10
+  jpa:
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQL5InnoDBDialect
+    hibernate:
+      #每次运行程序，没有表格会新建表格；有表格，表内有数据不会清空，只会更新
+      ddl-auto: update
+    open-in-view: false
+  jackson:
+    time-zone: GMT+8
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8101/eureka/
+  instance:
+    instance-id: springcloud-provider-dept-8201
