@@ -1,12 +1,10 @@
 server:
   port: 8201
 spring:
-  application:
-    name: POWER-GRID-PROVIDER
   datasource:
     username: root
     password: 123456
-    url: jdbc:mysql://localhost:3306/stategrid?useUnicode=true&serverTimezone=Asia/Shanghai&characterEncoding=utf-8
+    url: jdbc:mysql://localhost:3306/erp-ylt?useUnicode=true&serverTimezone=Asia/Shanghai&characterEncoding=utf-8
     driver-class-name: com.mysql.cj.jdbc.Driver
     hikari:
       maximum-pool-size: 60
@@ -25,9 +23,3 @@ spring:
     open-in-view: false
   jackson:
     time-zone: GMT+8
-eureka:
-  client:
-    service-url:
-      defaultZone: http://localhost:8101/eureka/
-  instance:
-    instance-id: springcloud-provider-dept-8201
